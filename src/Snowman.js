@@ -82,6 +82,7 @@ function Snowman({
         <p className = "number-wrong">Number of wrong guesses: { nWrong }</p>
         <p className="Snowman-word">{guessedWord()}</p>
         <p className = {`letter-buttons ${hidden}`}>{generateButtons()}</p>
+        {hidden ? <div className="result">You lose!</div> : null}
       </div>
   );
 }

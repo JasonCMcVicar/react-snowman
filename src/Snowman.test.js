@@ -8,9 +8,14 @@ it("it renders without crashing", function (){
 
 it("checking to see that guess options disappear after max guesses", function (){
   const { container } = render(<Snowman words={['cat']} maxWrong={3}/>);
-  fireEvent.click(container.querySelector('button')).toContainHTML('x');
-  fireEvent.click(container.querySelector('button')).toContainHTML('y');
-  fireEvent.click(container.querySelector('button')).toContainHTML('z');
-  expect(container.querySelector('letter-buttons')).toHaveClass('hidden');
-  expect(container.querySelector('result')).toBeInTheDocument();
+
+  //Clicks 3 wrong guesses
+  fireEvent.click(container.querySelector('button[value="x"]'));
+  fireEvent.click(container.querySelector('button[value="y"]'));
+  fireEvent.click(container.querySelector('button[value="z"]'));
+
+  const letterButtons = container.querySelector(".letter-buttons");
+
+  expect(letterButtons).toHaveClass('hidden');
+  expect(container.querySelector('.result')).toBeInTheDocument();
 })
