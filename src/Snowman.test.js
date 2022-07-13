@@ -18,4 +18,7 @@ it("checking to see that guess options disappear after max guesses", function ()
 
   expect(letterButtons).toHaveClass('hidden');
   expect(container.querySelector('.result')).toBeInTheDocument();
-})
+
+  //saves a snapshot
+  expect(container).toMatchSnapshot();
+});
